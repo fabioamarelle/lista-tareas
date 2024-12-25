@@ -31,3 +31,8 @@ def test_tarea_tiene_id_titulo_desc_estado():
     respuesta = cliente.get("/tareas")
     assert "id" in respuesta.json()[0] and "titulo" in respuesta.json()[0] and "descripcion" in respuesta.json()[0] and "estado" in respuesta.json()[0]
     tareas.clear()
+    
+def test_tareas_acepta_comando_POST():
+    cliente = TestClient(app)
+    respuesta = cliente.post("/tareas")
+    assert respuesta.status_code != status.HTTP_405_METHOD_NOT_ALLOWED
