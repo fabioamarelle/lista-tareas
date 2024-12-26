@@ -30,7 +30,3 @@ Desde /lista-tareas:
 ‎ 
 
 Proyecto creado como una herramienta para aprender a implementar aplicaciones web utilizando FastAPI y Streamlit.
-
-‎ 
-
-Proyecto creado como una herramienta  para aprender a implementar aplicaciones web utilizando FastAPI y Streamlit.
