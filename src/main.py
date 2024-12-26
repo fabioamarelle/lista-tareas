@@ -1,7 +1,8 @@
-from fastapi import FastAPI
-from pydantic import BaseModel, constr
-from uuid import UUID, uuid4
 from enum import Enum
+from uuid import UUID, uuid4
+
+from fastapi import FastAPI, status
+from pydantic import BaseModel, constr
 
 app = FastAPI()
 
@@ -23,11 +24,16 @@ tareas = []
 def listar():
     return tareas
 
-@app.post("/tareas", response_model=Tarea)
+@app.post("/tareas", response_model=Tarea, status_code=status.HTTP_201_CREATED)
 def crear(tarea: TareaIntroducida):
     tareaNueva = tarea.dict()
     tareaNueva.update({"id": uuid4()})
     tareas.append(tareaNueva)
     return tareaNueva
 
+@app.delete("/tareas/{tarea_id}", response_model=Tarea)
+def eliminar(tarea_id:UUID):
+    for tarea in tareas:
+        if tarea["id"] == tarea_id: 
+            tareas.remove(tarea)
     
