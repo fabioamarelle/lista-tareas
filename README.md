@@ -1,5 +1,5 @@
 
-# Lista de tareas
+# 📋 Lista de tareas
 
 [Enlace al proyecto](https://ltareas.streamlit.app/)
 
@@ -11,7 +11,10 @@ Utiliza los métodos HTTP POST, GET y DELETE para crear, listar y eliminar tarea
 Interfaz hecha con Streamlit.
 
 ---
-# Alojamiento (local)
+
+‎ 
+
+# 💻 Alojamiento local
 
 Desde /lista-tareas:
 
@@ -24,6 +27,9 @@ Desde /lista-tareas:
 
 ---
 
+‎ 
+
+Proyecto creado como una herramienta para aprender a implementar aplicaciones web utilizando FastAPI y Streamlit.
 
 ‎ 
 
