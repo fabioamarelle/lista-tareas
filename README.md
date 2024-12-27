@@ -14,19 +14,4 @@ Interfaz hecha con Streamlit.
 
 ‎ 
 
-# 💻 Alojamiento local
-
-Desde /lista-tareas:
-
-`.venv\Scripts\activate`
-
-`uvicorn src.main:app --reload`
-
-`streamlit run .\src\main.py`
-
-
----
-
-‎ 
-
 Proyecto creado como una herramienta para aprender a implementar aplicaciones web utilizando FastAPI y Streamlit.
