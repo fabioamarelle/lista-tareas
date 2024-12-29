@@ -3,7 +3,6 @@ import requests, uuid, threading, nest_asyncio, uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-# Para permitir que Streamlit y FastAPI compartan el mismo bucle de eventos
 nest_asyncio.apply()
 
 # Crea la aplicación FastAPI
@@ -41,7 +40,6 @@ thread = threading.Thread(target=start_fastapi, daemon=True)
 thread.start()
 
 
-# Función para cargar tareas desde la API (solo para el usuario actual)
 def cargar_tareas():
     try:
         # Crea un ID de usuario
@@ -57,17 +55,15 @@ def cargar_tareas():
             st.error(f"Error al cargar las tareas. Código de respuesta: {response.status_code}")
             return []
     except requests.exceptions.RequestException as e:
-        st.error(f"Hubo un error al intentar conectar con la API: {e}")
+        st.error(f"Error al intentar conectar con la API: {e}")
         return []
 
 
-# Frontend
 st.title("Lista de Tareas")
 
 # Cargar tareas automáticamente al inicio para el usuario actual
 tareas = cargar_tareas()
 
-# Mostrar las tareas con checkbox, título y descripción en la misma línea
 tareas_a_eliminar = []
 for tarea in tareas:
     col1, col2 = st.columns([0.1, 0.9]) 
@@ -103,7 +99,7 @@ if st.button("Agregar tarea"):
             else:
                 st.error(f"Error al agregar tarea. Código de respuesta: {response.status_code}")
         except requests.exceptions.RequestException as e:
-            st.error(f"Hubo un error al intentar conectar con la API: {e}")
+            st.error(f"Error al intentar conectar con la API: {e}")
     else:
         st.error("Por favor, complete todos los campos")
     
